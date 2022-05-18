@@ -16,8 +16,8 @@
 
 // Решение
 function f (arr) {
-    if (!Array.isArray(arr)) return console.log('Error: parameter type should be an array');
-    if (arr.length === 0) return console.log('Error: parameter can\'t be an empty');
+    if (!Array.isArray(arr)) throw new Error('Error: parameter type should be an array');
+    if (!arr.length) throw new Error('Error: parameter can\'t be an empty');
     let temp = [...arr];
     console.log(temp[0]);
     temp.splice(0, 1);
@@ -32,6 +32,8 @@ f([1, 2, 3]);
 f(1, 2, 3); // Error: parameter type should be an array
 f('Content'); // Error: parameter type should be an array
 f([]); // Error: parameter can't be an empty
+
+
 
 exports.f = f;
 /* не удалять */

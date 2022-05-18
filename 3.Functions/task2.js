@@ -12,7 +12,7 @@
 function f(...num) {
     let result = 0;
     for (let item of num) {
-        if (typeof item !== 'number') return 'Error: all parameters should be a Number type';
+        if (typeof item !== 'number') throw new Error('Error: all parameters should be a Number type');
         result += item;
     }
     return result;

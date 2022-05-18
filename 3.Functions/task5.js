@@ -16,7 +16,8 @@ const array = [1, 2, -4, 3, -9, -1, 7];
 
 // Решение
 function isPositive(num) {
-    return typeof num === 'number' ? num > 0 : 'Error: parameter type is not a Number';
+    if (typeof num !== 'number') throw new Error('Error: parameter type is not a Number');
+    return num > 0;
 }
 let result = [];
 for (let item of array){

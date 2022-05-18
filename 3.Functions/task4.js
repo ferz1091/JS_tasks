@@ -12,7 +12,7 @@
 
 // Решение
 function f(num) {
-    if (typeof num !== 'number') return 'Error: parameter type is not a Number';
+    if (typeof num !== 'number') throw new Error('Error: parameter type is not a Number');
     switch (num) {
         case 1:
             return 'Понедельник';

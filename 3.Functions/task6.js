@@ -13,7 +13,9 @@
 
 // Решение
 function isEven(num) {
-    return typeof num !== 'number' ? 'Error: parameter type is not a Number' : num % 2 === 0 ? true : false;
+    // return typeof num !== 'number' ? 'Error: parameter type is not a Number' : num % 2 === 0 ? true : false;
+    if (typeof num !== 'number') throw new Error('Error: parameter type is not a Number');
+    return num % 2 === 0;
 }
 /* не удалять */
 console.log(isEven(3)); // false

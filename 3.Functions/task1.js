@@ -10,8 +10,13 @@
 
 // Решение
 function f(num) {
-    return typeof num == 'number' ? num ** 3 : 'Error: parameter is not a number type'; 
-};
+    if (typeof num !== 'number') {
+        throw new Error('Error: parameter is not a number type');
+    }
+    else {
+        return num **3;
+    }
+}
 /* не удалять */
 console.log(f(2)); // 8
 console.log(f('Content')); // Error: parameter is not a number type
