@@ -16,7 +16,8 @@ const PRICE = '$120';
 // Решение
 function extractCurrencyValue(str) {
    if (typeof str !== 'string') throw new Error('Must be a string');
-   return Number(str.slice(1));
+   return Number(str.replace(/\D/g, ''));
+   // return Number(str.slice(1));
 };
 
 console.log(extractCurrencyValue(PRICE)); // 120
