@@ -15,16 +15,22 @@ const array = [1, 2, 'Добро пожаловать.', 4, 5, 6];
 
 // Решение
 
-function mySome(arr, cb) {
+function some(arr, cb) {
     if (arguments.length !== 2) throw new Error('Must be 2 arguments');
     if (!Array.isArray(arr)) throw new Error('1st argument must be an array');
     if (typeof cb !== 'function') throw new Error('2nd argument must be a callback');
-    for (let item of arr) {
-        if (cb(item)) return true;
+    for (let counter = 0; counter < arr.length; counter++) {
+        if (cb(arr[counter], counter, arr)) return true;
     }
     return false;
 }
 // Решение
+const result = some(array, function (item, i, arrayRef) {
+    console.log(item); // элемент массива
+    console.log(i); // индекс элемента
+    console.log(arrayRef); // ссылка на обрабатываемый массив
 
-console.log(mySome(array, (value) => typeof value === 'string'));
-console.log(mySome(array, (value) => typeof value > 10));
+    return typeof item === 'string';
+});
+
+console.log(result); // true

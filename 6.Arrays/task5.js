@@ -20,7 +20,6 @@ function reduce(arr, cb, acc) {
     if (arguments.length !== 3) throw new Error('Must be 2 arguments');
     if (!Array.isArray(arr)) throw new Error('1st argument must be an array');
     if (typeof cb !== 'function') throw new Error('2nd argument must be a callback');
-    debugger;
     if (typeof acc !== 'number') throw new Error('3rd argument must be a number');
     let accumulator = acc;
     for (let counter = 0; counter < arr.length; counter++) {

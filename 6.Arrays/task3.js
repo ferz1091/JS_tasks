@@ -13,15 +13,22 @@
 
 const array = [1, 2, 3, 4, 5, 6];
 
-function myEvery(arr, cb) {
+function every(arr, cb) {
     if (arguments.length !== 2) throw new Error('Must be 2 arguments');
     if (!Array.isArray(arr)) throw new Error('1st argument must be an array');
     if (typeof cb !== 'function') throw new Error('2nd argument must be a callback');
-    for (let item of arr) {
-        if (!cb(item)) return false;
+    for (let counter = 0; counter < arr.length; counter++) {
+        if (!cb(arr[counter], counter, arr)) return false;
     }
     return true;
 }
 // Решение
+const result = every(array, function (item, i, arrayRef) {
+    console.log(item); // элемент массива
+    console.log(i); // индекс элемента
+    console.log(arrayRef); // ссылка на обрабатываемый массив
 
-console.log(myEvery(array, (value) => typeof value === 'number'));
+    return typeof item === 'number';
+});
+
+console.log(result); // true

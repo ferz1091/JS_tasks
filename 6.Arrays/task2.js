@@ -13,15 +13,23 @@
 
 const array = ['Доброе утро!', 'Добрый вечер!', 3, 512, '#', 'До свидания!'];
 
-function myFilter(arr, cb) {
+function filter(arr, cb) {
     if (arguments.length !== 2) throw new Error('Must be 2 arguments');
     if (!Array.isArray(arr)) throw new Error('1st argument must be an array');
     if (typeof cb !== 'function') throw new Error('2nd argument must be a callback');
     let result = [];
-    for (let item of arr) {
-        if (cb(item)) result.push(item);
+    for (let counter = 0; counter < arr.length; counter++) {
+        if (cb(arr[counter], counter, arr)) result.push(arr[counter]);
     }
     return result;
 };
 
-console.log(myFilter(array, (value) => typeof value === 'string'));
+const filteredArray = filter(array, function (item, i, arrayRef) {
+    console.log(item); // элемент массива
+    console.log(i); // индекс элемента
+    console.log(arrayRef); // ссылка на обрабатываемый массив
+
+    return item === 'Добрый вечер!';
+});
+
+console.log(filteredArray); // ['Добрый вечер!']
