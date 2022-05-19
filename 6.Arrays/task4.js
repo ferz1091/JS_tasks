@@ -16,6 +16,7 @@ const array = [1, 2, 'Добро пожаловать.', 4, 5, 6];
 // Решение
 
 function mySome(arr, cb) {
+    if (arguments.length !== 2) throw new Error('Must be 2 arguments');
     if (!Array.isArray(arr)) throw new Error('1st argument must be an array');
     if (typeof cb !== 'function') throw new Error('2nd argument must be a callback');
     for (let item of arr) {

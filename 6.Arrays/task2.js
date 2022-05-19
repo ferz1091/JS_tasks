@@ -14,6 +14,7 @@
 const array = ['Доброе утро!', 'Добрый вечер!', 3, 512, '#', 'До свидания!'];
 
 function myFilter(arr, cb) {
+    if (arguments.length !== 2) throw new Error('Must be 2 arguments');
     if (!Array.isArray(arr)) throw new Error('1st argument must be an array');
     if (typeof cb !== 'function') throw new Error('2nd argument must be a callback');
     let result = [];
