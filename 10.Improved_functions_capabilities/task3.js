@@ -51,7 +51,7 @@ function calculateAdvanced(...funcs) {
     return {value: arr.reduce((acc, item) => item === null ? acc : item), errors};
 };
 // Решение
-debugger;
+
 const result = calculateAdvanced(
     () => { },
     () => {
